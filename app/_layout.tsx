@@ -4,7 +4,11 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { useColorScheme } from '../hooks/useColorScheme';
+import { CartProvider } from '../context/CartContext';
+import { AuthProvider } from '../context/AuthContext';
+import { FavoritesProvider } from '../context/FavoritesContext';
+import { ReviewsProvider } from '../context/ReviewsContext';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -18,12 +22,32 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <AuthProvider>
+      <CartProvider>
+        <FavoritesProvider>
+          <ReviewsProvider>
+            <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+              <Stack>
+                <Stack.Screen name="index" options={{ headerShown: false }} />
+                <Stack.Screen name="login" options={{ headerShown: false }} />
+                <Stack.Screen name="register" options={{ headerShown: false }} />
+                <Stack.Screen name="category" options={{ headerShown: false }} />
+                <Stack.Screen name="product" options={{ headerShown: false }} />
+                <Stack.Screen name="reviews" options={{ headerShown: false }} />
+                <Stack.Screen name="cart" options={{ headerShown: false }} />
+                <Stack.Screen name="checkout" options={{ headerShown: false }} />
+                <Stack.Screen name="search" options={{ headerShown: false }} />
+                <Stack.Screen name="address" options={{ headerShown: false }} />
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                <Stack.Screen name="+not-found" />
+              </Stack>
+              <StatusBar style="auto" />
+            </ThemeProvider>
+          </ReviewsProvider>
+        </FavoritesProvider>
+      </CartProvider>
+    </AuthProvider>
   );
 }
+
+

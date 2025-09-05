@@ -1,19 +1,20 @@
 {
   "expo": {
-    "name": "MarthaApp",
-    "slug": "MarthaApp",
+    "name": "AfroStore",
+    "slug": "AfroStore",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "marthaapp",
+    "icon": "./assets/images/logo.jpeg",
+    "scheme": "AfroStore",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "package": "com.finesser1408.AfroStore",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/logo.jpeg",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true
@@ -37,6 +38,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "924c07fb-eb4b-40a1-a88f-f9469b2543c3"
+      }
     }
   }
 }
